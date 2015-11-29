@@ -60,12 +60,24 @@
     <ClInclude Include="animalCardFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="bearAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="deerAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hareAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mooseAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wolfAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="animalCard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="startStack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="noSplit.cpp">
@@ -81,6 +93,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="joker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="startCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="startStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="queryResult.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bearAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="deerAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hareAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mooseAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wolfAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

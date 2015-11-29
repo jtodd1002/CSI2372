@@ -17,16 +17,32 @@ void SplitThree::printRow(EvenOdd row) {
 		if (row == EvenOdd::EVEN) {
 			std::cout << this->animalValueTL << " " << this->animalValueTR;
 		}
-		else {
+		else if (row == EvenOdd::ODD) {
 			std::cout << this->animalValueB << " " << this->animalValueB;
+		}
+		else {
+			if (this->getRow() == EvenOdd::EVEN) {
+				std::cout << this->animalValueTL << " " << this->animalValueTR;
+			}
+			else if (this->getRow() == EvenOdd::ODD) {
+				std::cout << this->animalValueB << " " << this->animalValueB;
+			}
 		}
 	}
 	else {
 		if (row == EvenOdd::EVEN) {
 			std::cout << this->animalValueB << " " << this->animalValueB;
 		}
-		else {
+		else if (row == EvenOdd::ODD) {
 			std::cout << this->animalValueTL << " " << this->animalValueTR;
+		}
+		else {
+			if (this->getRow() == EvenOdd::EVEN) {
+				std::cout << this->animalValueB << " " << this->animalValueB;
+			}
+			else if (this->getRow() == EvenOdd::ODD) {
+				std::cout << this->animalValueTL << " " << this->animalValueTR;
+			}
 		}
 	}
 }

@@ -1,8 +1,12 @@
 #include "animalCard.h"
 #include "actionCard.h"
+#include "startCard.h"
 #include <memory>
+#include <deque>
 
 class StartStack : public AnimalCard {
+	std::deque<ActionCard> stack;
+	StartCard start;
 public:
 	StartStack();
 	StartStack& operator+=(std::shared_ptr<ActionCard>);

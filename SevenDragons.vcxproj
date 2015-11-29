@@ -145,9 +145,13 @@
     <ClInclude Include="actionCard.h" />
     <ClInclude Include="animalCard.h" />
     <ClInclude Include="animalCardFactory.h" />
+    <ClInclude Include="bearAction.h" />
     <ClInclude Include="deck.h" />
+    <ClInclude Include="deerAction.h" />
     <ClInclude Include="hand.h" />
+    <ClInclude Include="hareAction.h" />
     <ClInclude Include="joker.h" />
+    <ClInclude Include="mooseAction.h" />
     <ClInclude Include="noSplit.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="queryResult.h" />
@@ -157,15 +161,23 @@
     <ClInclude Include="startCard.h" />
     <ClInclude Include="startStack.h" />
     <ClInclude Include="table.h" />
+    <ClInclude Include="wolfAction.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="animalCard.cpp" />
+    <ClCompile Include="bearAction.cpp" />
+    <ClCompile Include="deerAction.cpp" />
+    <ClCompile Include="hareAction.cpp" />
     <ClCompile Include="joker.cpp" />
+    <ClCompile Include="mooseAction.cpp" />
     <ClCompile Include="noSplit.cpp" />
+    <ClCompile Include="queryResult.cpp" />
     <ClCompile Include="splitFour.cpp" />
     <ClCompile Include="splitThree.cpp" />
     <ClCompile Include="splitTwo.cpp" />
+    <ClCompile Include="startCard.cpp" />
     <ClCompile Include="startStack.cpp" />
+    <ClCompile Include="wolfAction.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

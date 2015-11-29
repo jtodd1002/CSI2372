@@ -19,16 +19,32 @@ void SplitFour::printRow(EvenOdd row) {
 		if (row == EvenOdd::EVEN) {
 			std::cout << this->animalValueTL << " " << this->animalValueTR;
 		}
-		else {
+		else if (row == EvenOdd::ODD) {
 			std::cout << this->animalValueBL << " " << this->animalValueBR;
+		}
+		else {
+			if (this->getRow() == EvenOdd::EVEN) {
+				std::cout << this->animalValueTL << " " << this->animalValueTR;
+			}
+			else if (this->getRow() == EvenOdd::ODD) {
+				std::cout << this->animalValueBL << " " << this->animalValueBR;
+			}
 		}
 	}
 	else {
 		if (row == EvenOdd::EVEN) {
 			std::cout << this->animalValueBL << " " << this->animalValueBR;
 		}
-		else {
+		else if (row == EvenOdd::ODD) {
 			std::cout << this->animalValueTL << " " << this->animalValueTR;
+		}
+		else {
+			if (this->getRow() == EvenOdd::EVEN) {
+				std::cout << this->animalValueBL << " " << this->animalValueBR;
+			}
+			else if (this->getRow() == EvenOdd::ODD) {
+				std::cout << this->animalValueTL << " " << this->animalValueTR;
+			}
 		}
 	}
 }

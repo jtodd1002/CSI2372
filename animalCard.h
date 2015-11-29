@@ -6,7 +6,7 @@ enum class Orientation {
 };
 
 enum class EvenOdd {
-	EVEN, OFF, DEFAULT
+	EVEN, ODD, DEFAULT
 };
 
 class AnimalCard {
