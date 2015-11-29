@@ -22,4 +22,5 @@ public:
 	virtual Orientation getOrientation();
 	virtual EvenOdd getRow();
 	virtual void printRow(EvenOdd);
+	virtual bool compare(AnimalCard);
 };

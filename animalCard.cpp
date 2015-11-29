@@ -34,3 +34,12 @@ EvenOdd AnimalCard::getRow() {
 void AnimalCard::printRow(EvenOdd row) {
 
 }
+
+bool AnimalCard::compare(AnimalCard o_animalCard) {
+	if (this->getOrientation() == o_animalCard.getOrientation()) {
+		if (this->getRow() == o_animalCard.getRow()) {
+			return true;
+		}
+	}
+	return false;
+}
