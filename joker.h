@@ -4,5 +4,5 @@ class Joker : public NoSplit {
 	std::string jokerValue;
 public:
 	Joker() : NoSplit() {};
-	void print();
+	void printRow(EvenOdd);
 };

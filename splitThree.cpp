@@ -1,17 +1,32 @@
 #include "splitThree.h"
 
 SplitThree::SplitThree() : AnimalCard() {
-	this->animalValueLT = "";
-	this->animalValueLB = "";
-	this->animalValueR = "";
+	this->animalValueTL = "";
+	this->animalValueTR = "";
+	this->animalValueB = "";
 }
 
-SplitThree::SplitThree(Orientation d_orientation, EvenOdd d_evenOdd, std::string d_animalValueLT, std::string d_animalValueLB, std::string d_animalValueR) : AnimalCard(d_orientation, d_evenOdd) {
-	this->animalValueLT = d_animalValueLT;
-	this->animalValueLB = d_animalValueLB;
-	this->animalValueR = d_animalValueR;
+SplitThree::SplitThree(Orientation d_orientation, EvenOdd d_evenOdd, std::string d_animalValueTL, std::string d_animalValueTR, std::string d_animalValueB) : AnimalCard(d_orientation, d_evenOdd) {
+	this->animalValueTL = d_animalValueTL;
+	this->animalValueTR = d_animalValueTR;
+	this->animalValueB = d_animalValueB;
 }
 
-void SplitThree::print() {
-
+void SplitThree::printRow(EvenOdd row) {
+	if (this->getOrientation() == Orientation::UP) {
+		if (row == EvenOdd::EVEN) {
+			std::cout << this->animalValueTL << " " << this->animalValueTR;
+		}
+		else {
+			std::cout << this->animalValueB << " " << this->animalValueB;
+		}
+	}
+	else {
+		if (row == EvenOdd::EVEN) {
+			std::cout << this->animalValueB << " " << this->animalValueB;
+		}
+		else {
+			std::cout << this->animalValueTL << " " << this->animalValueTR;
+		}
+	}
 }

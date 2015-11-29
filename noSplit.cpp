@@ -8,6 +8,6 @@ NoSplit::NoSplit(Orientation d_orientation, EvenOdd d_evenOdd, std::string d_ani
 	this->animalValue = d_animalValue;
 }
 
-void NoSplit::print() {
-
+void NoSplit::printRow(EvenOdd row) {
+	std::cout << animalValue << " " << animalValue;
 }

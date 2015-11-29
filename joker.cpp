@@ -4,6 +4,6 @@ Joker::Joker() : NoSplit() {
 	this->jokerValue = "j";
 }
 
-void Joker::print() {
-
+void Joker::printRow(EvenOdd row) {
+	std::cout << jokerValue << " " << jokerValue;
 }

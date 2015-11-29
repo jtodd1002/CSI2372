@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 enum class Orientation {
 	UP, DOWN
@@ -9,6 +10,7 @@ enum class EvenOdd {
 };
 
 class AnimalCard {
+public:
 	Orientation d_orientation;
 	EvenOdd d_row;
 public:
@@ -17,6 +19,7 @@ public:
 	AnimalCard(const AnimalCard&);
 	virtual void setOrientation(Orientation);
 	virtual void setRow(EvenOdd);
+	virtual Orientation getOrientation();
 	virtual EvenOdd getRow();
 	virtual void printRow(EvenOdd);
 };

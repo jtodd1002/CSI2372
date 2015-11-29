@@ -23,6 +23,10 @@ void AnimalCard::setRow(EvenOdd row) {
 	this->d_row = row;
 }
 
+Orientation AnimalCard::getOrientation() {
+	return this->d_orientation;
+}
+
 EvenOdd AnimalCard::getRow() {
 	return this->d_row;
 }
