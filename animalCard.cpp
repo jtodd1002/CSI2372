@@ -32,13 +32,48 @@ EvenOdd AnimalCard::getRow() {
 }
 
 void AnimalCard::printRow(EvenOdd row) {
-
+	if (this->getOrientation() == Orientation::UP) {
+		if (row == EvenOdd::EVEN) {
+			std::cout << this->animalValueTL << " " << this->animalValueTR;
+		}
+		else if (row == EvenOdd::ODD) {
+			std::cout << this->animalValueBL << " " << this->animalValueBR;
+		}
+		else {
+			if (this->getRow() == EvenOdd::EVEN) {
+				std::cout << this->animalValueTL << " " << this->animalValueTR;
+			}
+			else if (this->getRow() == EvenOdd::ODD) {
+				std::cout << this->animalValueBL << " " << this->animalValueBR;
+			}
+		}
+	}
+	else {
+		if (row == EvenOdd::EVEN) {
+			std::cout << this->animalValueBL << " " << this->animalValueBR;
+		}
+		else if (row == EvenOdd::ODD) {
+			std::cout << this->animalValueTL << " " << this->animalValueTR;
+		}
+		else {
+			if (this->getRow() == EvenOdd::EVEN) {
+				std::cout << this->animalValueBL << " " << this->animalValueBR;
+			}
+			else if (this->getRow() == EvenOdd::ODD) {
+				std::cout << this->animalValueTL << " " << this->animalValueTR;
+			}
+		}
+	}
 }
 
 bool AnimalCard::compare(AnimalCard o_animalCard) {
-	if (this->getOrientation() == o_animalCard.getOrientation()) {
-		if (this->getRow() == o_animalCard.getRow()) {
-			return true;
+	if (this->animalValueTL == o_animalCard.animalValueTL) {
+		if (this->animalValueTR == o_animalCard.animalValueTR) {
+			if (this->animalValueBL == o_animalCard.animalValueBL) {
+				if (this->animalValueBR == o_animalCard.animalValueBR) {
+					return true;
+				}
+			}
 		}
 	}
 	return false;

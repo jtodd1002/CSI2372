@@ -10,6 +10,11 @@ enum class EvenOdd {
 };
 
 class AnimalCard {
+protected:
+	std::string animalValueTL;
+	std::string animalValueTR;
+	std::string animalValueBL;
+	std::string animalValueBR;
 public:
 	Orientation d_orientation;
 	EvenOdd d_row;
