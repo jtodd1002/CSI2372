@@ -1,59 +1,59 @@
 #include "hand.h"
 #include "noSplit.h"
+#include <iostream>
 
 Hand::Hand() {
-	std::vector<AnimalCard> A;
-	this->hand = A;
-	const AnimalCard B = AnimalCard();
-	std::vector<AnimalCard>::iterator iterator = (this->hand).begin();
-	(this->hand).insert(iterator, 3, B);
+	this->noCards = 0;
 }
 
 Hand & Hand::operator+=(std::shared_ptr<AnimalCard> o_animalCard) {
-	const AnimalCard A = *o_animalCard;
-	int i = 0;
-	AnimalCard B = AnimalCard();
-	while (!(((this->hand).at(i)).compare(B))) {
-		i++;
-	}
-	std::vector<AnimalCard>::iterator iter = (this->hand).begin();
-	(this->hand).insert(iter + i, A);
+	(this->hand)[this->noCards] = o_animalCard;
+	(this->noCards)++;
+	Hand toReturn = *this;
+	return toReturn;
 }
 
 Hand & Hand::operator-=(std::shared_ptr<AnimalCard> o_animalCard) {
-	const AnimalCard A = *o_animalCard;
-	int i = 0;
-	while (!(((this->hand).at(i)).compare(A))) {
-		i++;
+	if ((this->noCards) > 0) {
+		(this->hand)[(this->noCards) - 1] = nullptr;
+		(this->noCards)--;
+		Hand toReturn = *this;
+		return toReturn;
 	}
-	std::vector<AnimalCard>::iterator iter = (this->hand).begin();
-	AnimalCard toReturn = (this->hand).at(i);
-	(this->hand).erase(iter + i);
+	else {
+		std::cout << "Hand is empty" << std::endl;
+		Hand toReturn = *this;
+		return toReturn;
+	}
 }
 
 std::shared_ptr<AnimalCard> Hand::operator[](int pos) {
-	//no idea how to create a shared_ptr that holds the AnimalCard in question
+	return (this->hand)[pos];
 }
 
-int Hand::noCards() {
-	return this->hand.size();
+int Hand::numCards() {
+	return this->noCards;
 }
+
+
 
 void Hand::print() {
 	int i = 1;
-	while (i <= (this->hand).size()) {
+	while (i <= (this->noCards)) {
 		std::cout << i << "    ";
 	}
 	std::cout << std::endl;
 	int j = 0;
-	while (j < (this->hand).size()) {
-		(this->hand).at(j).printRow(EvenOdd::EVEN);
+	while (j < (this->noCards)) {
+		AnimalCard A = *(this->hand)[j];
+		A.printRow(EvenOdd::EVEN);
 		std::cout << "  ";
 	}
 	std::cout << std::endl;
 	int k = 0;
-	while (k < (this->hand).size()) {
-		(this->hand).at(k).printRow(EvenOdd::ODD);
+	while (k < (this->noCards)) {
+		AnimalCard A = *(this->hand)[j];
+		A.printRow(EvenOdd::ODD);
 		std::cout << "  ";
 	}
 	std::cout << std::endl;

@@ -1,8 +1,9 @@
+#pragma once
 #include "animalCard.h"
 
 class NoSplit : public AnimalCard {
 public:
-	NoSplit() : AnimalCard() {};
-	NoSplit(Orientation o, EvenOdd e, std::string) : AnimalCard(o, e) {};
+	NoSplit();
+	NoSplit(Orientation o, EvenOdd e, std::string);
 	void printRow(EvenOdd);
 };

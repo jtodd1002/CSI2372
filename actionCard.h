@@ -1,3 +1,4 @@
+#pragma once
 #include "startCard.h"
 #include "queryResult.h"
 #include "table.h"

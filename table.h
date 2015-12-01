@@ -1,3 +1,4 @@
+#pragma once
 #include "animalCard.h"
 #include "actionCard.h"
 #include "startStack.h"

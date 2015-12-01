@@ -27,7 +27,7 @@ AnimalFactory * AnimalFactory::getFactory() {
 Deck<AnimalCard> AnimalFactory::getDeck()
 {
 	//create empty Deck
-	std::shared_ptr<AnimalCard>* newDeck;
+	std::shared_ptr<AnimalCard> newDeck[51];
 	//fill Deck with Cards
 	std::shared_ptr<AnimalCard> j(new Joker());
 	newDeck[0] = j;
@@ -132,8 +132,10 @@ Deck<AnimalCard> AnimalFactory::getDeck()
 	std::shared_ptr<AnimalCard> sf15(new SplitFour(Orientation::UP, EvenOdd::EVEN, "b", "w", "d", "m"));
 	newDeck[50] = sf15;
 
+	std::shared_ptr<AnimalCard>* toReturn = newDeck;
+
 	Deck<AnimalCard> deck;
-	deck = Deck<AnimalCard>(newDeck);
+	deck = Deck<AnimalCard>(toReturn);
 
 	return deck;
 }

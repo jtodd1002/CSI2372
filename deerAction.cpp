@@ -10,7 +10,7 @@ QueryResult DeerAction::query() {
 	std::cout << "Please select a player to trade goals with:" << std::endl;
 	int playerNumber;
 	std::cin >> playerNumber;
-	QueryResult result = new QueryResult(playerNumber);
+	QueryResult result = QueryResult(playerNumber);
 	return result;
 }
 

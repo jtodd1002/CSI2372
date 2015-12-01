@@ -165,18 +165,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="animalCard.cpp" />
+    <ClCompile Include="animalCardFactory.cpp" />
     <ClCompile Include="bearAction.cpp" />
+    <ClCompile Include="deck.cpp" />
     <ClCompile Include="deerAction.cpp" />
+    <ClCompile Include="hand.cpp" />
     <ClCompile Include="hareAction.cpp" />
     <ClCompile Include="joker.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="mooseAction.cpp" />
     <ClCompile Include="noSplit.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="queryResult.cpp" />
     <ClCompile Include="splitFour.cpp" />
     <ClCompile Include="splitThree.cpp" />
     <ClCompile Include="splitTwo.cpp" />
     <ClCompile Include="startCard.cpp" />
     <ClCompile Include="startStack.cpp" />
+    <ClCompile Include="table.cpp" />
     <ClCompile Include="wolfAction.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

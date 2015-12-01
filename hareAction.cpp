@@ -17,7 +17,7 @@ QueryResult HareAction::query() {
 	int endCol;
 	std::cin >> endRow;
 	std::cin >> endCol;
-	QueryResult result = new QueryResult(startRow, startCol, endRow, endCol);
+	QueryResult result = QueryResult(startRow, startCol, endRow, endCol);
 	return result;
 }
 

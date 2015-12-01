@@ -12,7 +12,7 @@ QueryResult WolfAction::query() {
 	int col;
 	std::cin >> row;
 	std::cin >> col;
-	QueryResult result = new QueryResult(row, col);
+	QueryResult result = QueryResult(row, col);
 	return result;
 }
 

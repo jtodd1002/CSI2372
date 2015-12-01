@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include <iostream>
 
@@ -28,4 +29,5 @@ public:
 	virtual EvenOdd getRow();
 	virtual void printRow(EvenOdd);
 	virtual bool compare(AnimalCard);
+	virtual bool isEmpty(AnimalCard);
 };

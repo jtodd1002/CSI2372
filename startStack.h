@@ -1,3 +1,4 @@
+#pragma once
 #include "animalCard.h"
 #include "actionCard.h"
 #include "startCard.h"
@@ -6,7 +7,7 @@
 
 class StartStack : public AnimalCard {
 	std::deque<ActionCard> stack;
-	StartCard start;
+	std::shared_ptr<StartCard> start;
 public:
 	StartStack();
 	StartStack& operator+=(std::shared_ptr<ActionCard>);

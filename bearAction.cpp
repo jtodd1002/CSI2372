@@ -10,7 +10,7 @@ QueryResult BearAction::query() {
 	std::cout << "Please select a player to switch hands with:" << std::endl;
 	int playerNumber;
 	std::cin >> playerNumber;
-	QueryResult result = new QueryResult(playerNumber);
+	QueryResult result = QueryResult(playerNumber);
 	return result;
 }
 

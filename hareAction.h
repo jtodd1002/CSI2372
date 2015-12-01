@@ -1,3 +1,4 @@
+#pragma once
 #include "actionCard.h"
 
 class HareAction : public ActionCard {

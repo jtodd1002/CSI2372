@@ -1,9 +1,10 @@
+#pragma once
 #include "noSplit.h"
 
 class StartCard : public NoSplit {
 	std::string startValue;
 public:
-	StartCard() : NoSplit() {};
+	StartCard();
 	void printRow(EvenOdd);
 };
 

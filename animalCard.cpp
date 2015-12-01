@@ -78,3 +78,10 @@ bool AnimalCard::compare(AnimalCard o_animalCard) {
 	}
 	return false;
 }
+
+bool AnimalCard::isEmpty(AnimalCard o_animalCard) {
+	if (o_animalCard.animalValueTL == "E") {
+		return true;
+	}
+	return false;
+}

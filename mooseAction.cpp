@@ -6,7 +6,7 @@ MooseAction::MooseAction() {
 }
 
 QueryResult MooseAction::query() {
-	QueryResult result = new QueryResult();
+	QueryResult result = QueryResult();
 	return result;
 }
 

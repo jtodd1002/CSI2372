@@ -1,3 +1,4 @@
+#pragma once
 class QueryResult {
 	int row;
 	int col;
@@ -6,6 +7,7 @@ class QueryResult {
 	int endRow;
 	int endCol;
 	int playerNumber;
+public:
 	QueryResult();
 	QueryResult(int);
 	QueryResult(int, int);
