@@ -2,7 +2,7 @@
 
 template <class T>
 class Deck {
-	std::shared_ptr<T>* deck[51];
+	std::shared_ptr<T>* deck;
 	int top;
 public:
 	Deck<T>();
