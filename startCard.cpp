@@ -1,9 +1,9 @@
 #include "startCard.h"
 
 StartCard::StartCard() : NoSplit() {
-	this->startValue = "s";
-}
+	this->animalValueTL = "S";
+	this->animalValueTR = "S";
+	this->animalValueBL = "S";
+	this->animalValueBR = "S";
 
-void StartCard::printRow(EvenOdd row) {
-	std::cout << startValue << " " << startValue;
 }

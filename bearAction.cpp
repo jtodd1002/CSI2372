@@ -3,6 +3,10 @@
 BearAction::BearAction() {
 	this->title = "Bear";
 	this->action = "This card allows you to switch hands with another player.";
+	this->animalValueTL = "B";
+	this->animalValueTR = "B";
+	this->animalValueBL = "B";
+	this->animalValueBR = "B";
 }
 
 QueryResult BearAction::query() {

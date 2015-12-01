@@ -3,6 +3,10 @@
 HareAction::HareAction() {
 	this->title = "Hare";
 	this->action = "This card allows you to move any card on the table to a different VALID position on the table.";
+	this->animalValueTL = "H";
+	this->animalValueTR = "H";
+	this->animalValueBL = "H";
+	this->animalValueBR = "H";
 }
 
 QueryResult HareAction::query() {

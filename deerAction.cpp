@@ -3,6 +3,10 @@
 DeerAction::DeerAction() {
 	this->title = "Deer";
 	this->action = "This card allows you to trade goals with another player.";
+	this->animalValueTL = "D";
+	this->animalValueTR = "D";
+	this->animalValueBL = "D";
+	this->animalValueBR = "D";
 }
 
 QueryResult DeerAction::query() {

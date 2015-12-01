@@ -1,9 +1,8 @@
 #include "joker.h"
 
 Joker::Joker() : NoSplit() {
-	this->jokerValue = "j";
-}
-
-void Joker::printRow(EvenOdd row) {
-	std::cout << jokerValue << " " << jokerValue;
+	this->animalValueTL = "J";
+	this->animalValueTR = "J";
+	this->animalValueBL = "J";
+	this->animalValueBR = "J";
 }

@@ -3,6 +3,10 @@
 WolfAction::WolfAction() {
 	this->title = "Wolf";
 	this->action = "This card allows you to remove a card from the table and place it in your hand.";
+	this->animalValueTL = "W";
+	this->animalValueTR = "W";
+	this->animalValueBL = "W";
+	this->animalValueBR = "W";
 }
 
 QueryResult WolfAction::query() {

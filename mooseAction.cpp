@@ -3,6 +3,10 @@
 MooseAction::MooseAction() {
 	this->title = "Moose";
 	this->action = "This card rotates the goals of all players from 1 to 2, 2 to 3, etc.";
+	this->animalValueTL = "M";
+	this->animalValueTR = "M";
+	this->animalValueBL = "M";
+	this->animalValueBR = "M";
 }
 
 QueryResult MooseAction::query() {

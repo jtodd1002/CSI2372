@@ -8,9 +8,11 @@
 class StartStack : public AnimalCard {
 	std::deque<ActionCard> stack;
 	std::shared_ptr<StartCard> start;
+	int stackSize;
 public:
 	StartStack();
 	StartStack& operator+=(std::shared_ptr<ActionCard>);
 	StartStack& operator-=(std::shared_ptr<ActionCard>);
 	std::shared_ptr<StartCard> getStartCard();
+	void printRow(EvenOdd);
 };
