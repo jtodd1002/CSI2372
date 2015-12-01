@@ -14,6 +14,9 @@ QueryResult BearAction::query() {
 	return result;
 }
 
-void BearAction::perform(Table &, Player *, QueryResult) {
-
+void BearAction::perform(Table& o_table, Player* action_player, QueryResult o_query) {
+	Player target = o_table.getPlayer(o_query.playerNumber);
+	Hand temp = target.getHand();
+	target.swapHand(action_player->getHand());
+	action_player->swapHand(temp);
 }

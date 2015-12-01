@@ -21,6 +21,7 @@ QueryResult HareAction::query() {
 	return result;
 }
 
-void HareAction::perform(Table &, Player *, QueryResult) {
-
+void HareAction::perform(Table& o_table, Player* action_player, QueryResult o_query) {
+	std::shared_ptr<AnimalCard> toMove = o_table.pickAt(o_query.startRow, o_query.startCol);
+	o_table.addAt(toMove, o_query.endRow, o_query.endCol);
 }

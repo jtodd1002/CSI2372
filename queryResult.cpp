@@ -1,4 +1,5 @@
 #include "queryResult.h"
+#include "table.h"
 
 QueryResult::QueryResult() {
 

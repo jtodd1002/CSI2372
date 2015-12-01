@@ -1,6 +1,11 @@
 #include "table.h"
 
-Table::Table() {
+Table::Table(Player o_players[5], int numPlayers) {
+	int i = 0;
+	while (i < numPlayers) {
+		this->players[i] = o_players[i];
+		i++;
+	}
 	std::shared_ptr<AnimalCard>** array[103];
 	int i = 0;
 	while (i < 103) {
@@ -9,6 +14,7 @@ Table::Table() {
 	}
 	(this->table) = array;
 	this->stack = StartStack();
+	this->noPlayers = numPlayers;
 }
 
 int Table::addAt(std::shared_ptr<AnimalCard> o_animalCard, int row, int col) {
@@ -28,6 +34,14 @@ std::shared_ptr<AnimalCard> Table::pickAt(int row, int col) {
 	shared_ptr<AnimalCard> temp = (this->table)[row][col];
 	(this->table)[row][col] = AnimalCard();
 	return temp;
+}
+
+Player Table::getPlayer(int playerNumber) {
+	return (this->players)[playerNumber];
+}
+
+int Table::numPlayers() {
+	return this->noPlayers;
 }
 
 bool Table::win(std::string & animal) {

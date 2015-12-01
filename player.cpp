@@ -11,8 +11,9 @@ Player::Player() {
 	bleh = array;
 }
 
-Player::Player(int number, std::string secret, Hand hand) {
+Player::Player(int number, std::string name, std::string secret, Hand hand) {
 	this->playerNumber = number;
+	this->playerName = name;
 	this->secretAnimal = secret;
 	this->hand = hand;
 }
@@ -27,8 +28,17 @@ std::string Player::getSecretAnimal() {
 	return this->secretAnimal;
 }
 
+void Player::swapHand(Hand o_hand) {
+	this->hand = o_hand;
+}
+
+Hand Player::getHand() {
+	return this->hand;
+}
+
 void Player::print() {
 	std::cout << "Player " << this->playerNumber << std::endl;
+	std::cout << "Name: " << this->playerName << std::endl;
 	std::cout << "Secret Animal: " << this->getSecretAnimal() << std::endl;
 	std::cout << "Hand: " << std::endl;
 	(this->hand).print();

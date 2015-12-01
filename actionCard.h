@@ -3,6 +3,7 @@
 #include "queryResult.h"
 #include "table.h"
 #include "player.h"
+#include "hand.h"
 #include <string>
 #include <iostream>
 

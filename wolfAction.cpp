@@ -16,6 +16,7 @@ QueryResult WolfAction::query() {
 	return result;
 }
 
-void WolfAction::perform(Table &, Player *, QueryResult) {
-
+void WolfAction::perform(Table& o_table, Player* action_player, QueryResult o_query) {
+	std::shared_ptr<AnimalCard> target = o_table.pickAt(o_query.row, o_query.col);
+	(action_player->getHand()).operator+=(target);
 }

@@ -14,6 +14,9 @@ QueryResult DeerAction::query() {
 	return result;
 }
 
-void DeerAction::perform(Table &, Player *, QueryResult) {
-
+void DeerAction::perform(Table& o_table, Player* action_player, QueryResult o_query) {
+	Player target = o_table.getPlayer(o_query.playerNumber);
+	std::string temp = target.getSecretAnimal();
+	target.swapSecretAnimal(action_player->getSecretAnimal);
+	action_player->swapSecretAnimal(temp);
 }

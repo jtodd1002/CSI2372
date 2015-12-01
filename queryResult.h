@@ -1,5 +1,8 @@
 #pragma once
+#include "player.h"
+
 class QueryResult {
+public:
 	int row;
 	int col;
 	int startRow;
