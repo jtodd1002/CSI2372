@@ -30,4 +30,8 @@ public:
 	virtual void printRow(EvenOdd);
 	virtual bool compare(AnimalCard);
 	virtual bool isEmpty(AnimalCard);
+	std::string getTL() const;
+	std::string getTR() const;
+	std::string getBL() const;
+	std::string getBR() const;
 };

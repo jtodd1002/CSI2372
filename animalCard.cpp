@@ -79,6 +79,25 @@ bool AnimalCard::compare(AnimalCard o_animalCard) {
 	return false;
 }
 
+  std::string AnimalCard::getTL() const
+  {
+	 return this->animalValueTL;
+  }
+  std::string AnimalCard::getTR() const
+  {
+	  return this->animalValueTR;
+  }
+
+  std::string AnimalCard::getBL() const
+  {
+	  return this->animalValueBL;
+  }
+  std::string AnimalCard::getBR() const
+  {
+	  return this->animalValueBR;
+  }
+
+
 bool AnimalCard::isEmpty(AnimalCard o_animalCard) {
 	if (o_animalCard.animalValueTL == "E") {
 		return true;
