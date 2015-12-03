@@ -142,11 +142,81 @@ bool Table::checkForNeighbour(int row, int col)
 	return correct;
 }
 
-int Table::nOfMatches(std::shared_ptr<AnimalCard> card, int row, int col)
+int Table::nOfMatches(std::shared_ptr<AnimalCard> o_actionCard, int row, int col)
 {
-	int m = 0;
-	if (row - 1 >= 0 && tracker[row - 1][col] == 1) {
-		if ((row - 1 == 52 && col == 52) || (row == 52 && col-1 == 52)||table[row - 1][col]->getBL() == card->getTL() || table[row][col-1]->getTR() == card->getTL())
+	bool TL = false;
+	bool TR = false;
+	bool BL = false;
+	bool BR = false;
+	bool  matches[4] = { TL, TR, BL, BR};
+	int count = 0;
+	 
+	//CHECKING FOR MATCHES WITH CARD ABOVE
+	if (row - 1 >= 0 && tracker[row - 1][col] == 1)
+	{
+		if (((row - 1) == 52 && col == 52) || table[row - 1][col]->getBL() == o_actionCard->getTL())
+		{
+			TL = true;
+		}
+
+		if (((row - 1) == 52 && col == 52) || table[row - 1][col]->getBR() == o_actionCard->getTR())
+		{
+			TR = true;
+		}
+	}
+
+	//CHECKING FOR MATCHES WITH CARD ON THE LEFT
+	if (((col - 1) >= 0) && tracker[row][col - 1] == 1)
+	{
+		if ((row == 52 && (col - 1 == 52)) || table[row][col - 1]->getTR() == o_actionCard->getTL())
+		{
+			TL = true;
+		}
+		if ((row == 52 && (col - 1 == 52)) || table[row][col - 1]->getBR() == o_actionCard->getBL())
+		{
+			BL = true;
+		}
+	}
+
+	//CHECKING FOR MATCHES WITH CARD BELOW
+	if (((row + 1) >= 0) && tracker[row + 1][col] == 1)
+	{
+		if (((row + 1 == 52) && col == 52) || table[row + 1][col]->getTL() == o_actionCard->getBL())
+		{
+			BL = true;
+		}
+		if (((row + 1 == 52) && col == 52) || table[row + 1][col]->getTR() == o_actionCard->getBR())
+		{
+			BR = true;
+		}
+	}
+
+	//CHECKING FOR MATCHES WITH CARD ON THE RIGHT
+	if (((col + 1) >= 0) && tracker[row][col + 1] == 1)
+	{
+		if ((row == 52 && (col + 1 == 52)) || table[row][col + 1]->getTL() == o_actionCard->getTR())
+		{
+			TR = true;
+		}
+		if ((row == 52 && (col + 1 == 52)) || table[row][col + 1]->getBL() == o_actionCard->getBR())
+		{
+			BR = true;
+		}
+	}
+
+	//computes total matches for the card that is being added
+	for (int i = 0; i < 4; ++i)
+	{
+		if (matches[i] == true)
+		{
+			count++;
+		}
+	}
+
+	return count++;
+
+		//POOR implementation for checking for matches 
+		/*if ((row - 1 == 52 && col == 52) || (row == 52 && col-1 == 52)||table[row - 1][col]->getBL() == card->getTL() || table[row][col-1]->getTR() == card->getTL())
 			m++;
 	}
 	if (col - 1 >= 0 && tracker[row][col - 1] == 1) {
@@ -161,7 +231,7 @@ int Table::nOfMatches(std::shared_ptr<AnimalCard> card, int row, int col)
 		if ((row + 1 == 52 && col == 52) || (row==52 && col +1 ==52)|| table[row + 1][col]->getTR() == card->getBR() || table[row][col+1]->getBL() == card->getBR())
 			m++;
 	}
-	return m;
+	return m;*/
 }
 	
 
@@ -174,6 +244,10 @@ Table & Table::operator-=(std::shared_ptr<ActionCard> o_actionCard) {
 }
 
 std::shared_ptr<AnimalCard> Table::pickAt(int row, int col) {
+
+	if (tracker[row][col] != 1 || (row == 52 && col == 52)) {
+		//throw IllegalPlacement(row, col);
+	}
 	shared_ptr<AnimalCard> temp = (this->table)[row][col];
 	(this->table)[row][col] = nullptr;
 	(this->tracker)[row][col] = -1;
