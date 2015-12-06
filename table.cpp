@@ -27,14 +27,13 @@ int Table::addAt(std::shared_ptr<AnimalCard> o_animalCard, int row, int col) {
 	bool neighbours = false;
 	int matches = 0;
 
-	if (tracker[row][col]<1) // checks if there is a card at Board[row][col] already/
+	if (tracker[row][col]<1) // checks if there isn't a card at Board[row][col] 
 	{
 		neighbours = checkForNeighbour(row, col);
 		 if (!neighbours)
 		 {
-			 //throw exception maybe?
 			 cout << "invalid placement " << endl;
-			
+			 return 0;
 		 }
 		 else
 		 {
@@ -48,16 +47,13 @@ int Table::addAt(std::shared_ptr<AnimalCard> o_animalCard, int row, int col) {
 			 }
 			 else
 			 {
-				 //throw exception
-				 cout << "invalid place: no matches" << endl;
+				 return 0;
 			 }
 		 }
-
-		 return 0;
 	}
-	else
+	else //  there's already a card at given [row][col]
 	{
-		/*throw exeception*/
+		
 		cout << "there's already a card at that position" << endl;
 		return 0;
 	}
@@ -154,12 +150,12 @@ int Table::nOfMatches(std::shared_ptr<AnimalCard> o_actionCard, int row, int col
 	//CHECKING FOR MATCHES WITH CARD ABOVE
 	if (row - 1 >= 0 && tracker[row - 1][col] == 1)
 	{
-		if (((row - 1) == 52 && col == 52) || table[row - 1][col]->getBL() == o_actionCard->getTL())
+		if (((row - 1) == 52 && col == 52) || table[row - 1][col]->getBL() == o_actionCard->getTL() || table[row - 1][col]->getBL() == "J")
 		{
 			TL = true;
 		}
 
-		if (((row - 1) == 52 && col == 52) || table[row - 1][col]->getBR() == o_actionCard->getTR())
+		if (((row - 1) == 52 && col == 52) || table[row - 1][col]->getBR() == o_actionCard->getTR() || table[row - 1][col]->getBR() == "J")
 		{
 			TR = true;
 		}
@@ -168,11 +164,11 @@ int Table::nOfMatches(std::shared_ptr<AnimalCard> o_actionCard, int row, int col
 	//CHECKING FOR MATCHES WITH CARD ON THE LEFT
 	if (((col - 1) >= 0) && tracker[row][col - 1] == 1)
 	{
-		if ((row == 52 && (col - 1 == 52)) || table[row][col - 1]->getTR() == o_actionCard->getTL())
+		if ((row == 52 && (col - 1 == 52)) || table[row][col - 1]->getTR() == o_actionCard->getTL() || table[row][col - 1]->getTR() == "J")
 		{
 			TL = true;
 		}
-		if ((row == 52 && (col - 1 == 52)) || table[row][col - 1]->getBR() == o_actionCard->getBL())
+		if ((row == 52 && (col - 1 == 52)) || table[row][col - 1]->getBR() == o_actionCard->getBL() || table[row][col - 1]->getBR() == "J")
 		{
 			BL = true;
 		}
@@ -181,11 +177,11 @@ int Table::nOfMatches(std::shared_ptr<AnimalCard> o_actionCard, int row, int col
 	//CHECKING FOR MATCHES WITH CARD BELOW
 	if (((row + 1) >= 0) && tracker[row + 1][col] == 1)
 	{
-		if (((row + 1 == 52) && col == 52) || table[row + 1][col]->getTL() == o_actionCard->getBL())
+		if (((row + 1 == 52) && col == 52) || table[row + 1][col]->getTL() == o_actionCard->getBL() || table[row + 1][col]->getTL() == "J")
 		{
 			BL = true;
 		}
-		if (((row + 1 == 52) && col == 52) || table[row + 1][col]->getTR() == o_actionCard->getBR())
+		if (((row + 1 == 52) && col == 52) || table[row + 1][col]->getTR() == o_actionCard->getBR() || table[row + 1][col]->getTR() == "J")
 		{
 			BR = true;
 		}
@@ -194,11 +190,11 @@ int Table::nOfMatches(std::shared_ptr<AnimalCard> o_actionCard, int row, int col
 	//CHECKING FOR MATCHES WITH CARD ON THE RIGHT
 	if (((col + 1) >= 0) && tracker[row][col + 1] == 1)
 	{
-		if ((row == 52 && (col + 1 == 52)) || table[row][col + 1]->getTL() == o_actionCard->getTR())
+		if ((row == 52 && (col + 1 == 52)) || table[row][col + 1]->getTL() == o_actionCard->getTR() || table[row][col + 1]->getTL() == "J")
 		{
 			TR = true;
 		}
-		if ((row == 52 && (col + 1 == 52)) || table[row][col + 1]->getBL() == o_actionCard->getBR())
+		if ((row == 52 && (col + 1 == 52)) || table[row][col + 1]->getBL() == o_actionCard->getBR() || table[row][col + 1]->getBL() == "J")
 		{
 			BR = true;
 		}
@@ -243,6 +239,7 @@ Table & Table::operator-=(std::shared_ptr<ActionCard> o_actionCard) {
 	(this->stack).operator-=(o_actionCard);
 }
 
+//removes and returns card at given [row][col] 
 std::shared_ptr<AnimalCard> Table::pickAt(int row, int col) {
 
 	if (tracker[row][col] != 1 || (row == 52 && col == 52)) {
@@ -262,6 +259,31 @@ int Table::numPlayers() {
 	return this->noPlayers;
 }
 
+/*for ease checking if a player has won, you now only have to count the number of
+cards on the table with the player's secret animal. The animals do not have to be 
+connected in order to be included in the count.Because the counts will go
+up, a player will now need 12 cards.The rules for placing cards(or anything else)
+are not affected by this change.*/
+
 bool Table::win(std::string & animal) {
-	//will need to check if at least 12 cards of this animal exist on the game board
+
+	bool exists = false;
+	int numOfAnimals = 0;
+
+	for (int i = 0; i < 103; ++i)
+	{
+		for (int j = 0; j < 103; ++j)
+		{
+			if (tracker[i][j] == 1)
+			{
+				if (table[i][j]->getTL() == animal || table[i][j]->getTR() == animal || table[i][j]->getBL() == animal || table[i][j]->getBR() == animal)
+				{
+					numOfAnimals++;
+				}
+			}
+		}
+	}
+
+	return numOfAnimals >= 12;
+	
 }
